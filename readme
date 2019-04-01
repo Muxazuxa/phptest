@@ -1,0 +1,15 @@
+# Installation
+Clone the repository.
+Add to htdocs folder in xampp.
+
+# Import using PHPMyAdmin
+Do the following actions:
+
+Open phpMyAdmin.
+In the phpMyAdmin setup page, click Add to add your Database for MySQL server. Provide the connection details and login information.
+_user:root_
+_password:x19990303_
+Create an appropriately named database and select it on the left of the screen. 
+Click the SQL link to show the page where you can type in SQL commands, or upload your SQL file.
+Use the browse button to find the database file.
+Click the Go button to export the backup, execute the SQL commands, and re-create your database.
