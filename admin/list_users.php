@@ -1,11 +1,14 @@
 <?php include('../server.php');
+//check for login user
 if(!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
 }
+//check for admin
 if(!isAdmin()){
 	header('location: ../index.php');
 }
+//take all users form db
 $query = "SELECT * FROM users";
 $results = mysqli_query($db, $query)
  ?>
@@ -14,6 +17,7 @@ $results = mysqli_query($db, $query)
 <head>
 	<meta charset="UTF-8">
 	<title>List of users</title>
+	<!--function for confirmation delete -->
 	<script language="JavaScript" type="text/javascript">
 		function checkDelete(){
     return confirm('Are you sure?');
@@ -22,6 +26,7 @@ $results = mysqli_query($db, $query)
 </head>
 <body>
 	<h2>List of users</h2>
+	<!--notification messages -->
 	<?php if(isset($_SESSION['message'])){
 		echo $_SESSION['message'];
 		unset($_SESSION['message']);
@@ -36,7 +41,7 @@ $results = mysqli_query($db, $query)
 			<th colspan="2">Action</th>
 		</tr>
 	</thead>
-	
+	<!--take users form results-->
 	<?php while ($row = mysqli_fetch_array($results)) { ?>
 		<tr>
 			<td><?php echo $row['username']; ?></td>

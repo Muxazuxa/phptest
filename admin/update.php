@@ -1,8 +1,10 @@
 <?php include('../server.php');
+//if user is not logged in
 if(!isLoggedIn()) {
 	$_SESSION['msg'] = "You must log in first";
 	header('location: ../login.php');
 }
+//check for admin
 if(!isAdmin()){
 	header('location: ../index.php');
 }
